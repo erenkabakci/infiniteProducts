@@ -16,7 +16,7 @@ struct Product: Unboxable {
   let msrp: String?
   let sku: String?
   let enabledFrom: Date?
-  let showMsrp: Bool?
+  let showMsrp: String?
   let msrpIndex: Double?
   let discount: Double?
   let thumbnailPath: URL?

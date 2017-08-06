@@ -19,16 +19,8 @@ class ApiClientImpl: Service {
     super.init(baseURL: ServicePath.baseUrl)
     LogCategory.enabled = LogCategory.common
 
-    let unboxerTransformer = ResponseContentTransformer<[String: Any], Unboxer> {
-      return Unboxer(dictionary: $0.content)
-    }
-
-    configure {
-      $0.pipeline[.parsing].add(unboxerTransformer, contentTypes: ["*/json"])
-    }
-
-    configureTransformer(ServicePath.trendProducts) { (entity: Entity<Unboxer>) -> Void in
-      
+    configureTransformer(ServicePath.trendProducts) { (entity: Entity<[String: Any]>) -> [Product]? in
+      return try unbox(dictionary: entity.content, atKeyPath: "trend_products.products")
     }
   }
 }
