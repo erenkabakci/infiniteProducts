@@ -8,13 +8,25 @@
 
 import Foundation
 import UIKit
+import Siesta
 
 class ProductListingPresenter {
-  let view: UIViewController
+  let view: BaseCollectionViewController
   let apiClient: ApiClient
+  private lazy var products: [Product] = []
+  private (set) var currentProductPage: Int = 0
 
-  init(view: UIViewController, apiClient: ApiClient = ApiClientImpl()) {
+  init(view: BaseCollectionViewController, apiClient: ApiClient = ApiClientImpl()) {
     self.view = view
     self.apiClient = apiClient
+
+    view.onViewDidLoad = {
+      apiClient.fetchProducts(forPage: self.currentProductPage)
+        .addObserver(owner: self, closure: { [unowned self] (resource, resourceEvent) in
+          if case .newData = resourceEvent {
+            self.products = resource.typedContent() ?? []
+          }
+      }).loadIfNeeded()
+    }
   }
 }

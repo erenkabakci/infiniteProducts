@@ -9,9 +9,10 @@
 import UIKit
 
 class ProductListingViewController: BaseCollectionViewController {
+  private var presenter: ProductListingPresenter?
   override func viewDidLoad() {
+    presenter = ProductListingPresenter(view: self)
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
   }
 }
 
