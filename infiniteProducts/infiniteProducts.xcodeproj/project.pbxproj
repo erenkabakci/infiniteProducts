@@ -15,6 +15,8 @@
 		3AAB81271F33A51600BABED9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAB81251F33A51600BABED9 /* Main.storyboard */; };
 		3AAB81291F33A51600BABED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AAB81281F33A51600BABED9 /* Assets.xcassets */; };
 		3AAB812C1F33A51600BABED9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAB812A1F33A51600BABED9 /* LaunchScreen.storyboard */; };
+		3ADF529B1F4736780052FBB0 /* ProductListingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF529A1F4736780052FBB0 /* ProductListingPresenter.swift */; };
+		3ADF529D1F4739730052FBB0 /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADF529C1F4739730052FBB0 /* BaseCollectionViewController.swift */; };
 		839D6B562C8997322976BB35 /* Pods_infiniteProductsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2D196CF410F46D10ACA8B6 /* Pods_infiniteProductsTests.framework */; };
 		92201EC8611DC05317C13585 /* Pods_infiniteProducts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7816D015CC06E051BF12207 /* Pods_infiniteProducts.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +45,8 @@
 		3AAB812D1F33A51600BABED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AAB81321F33A51600BABED9 /* infiniteProductsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = infiniteProductsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAB81381F33A51600BABED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ADF529A1F4736780052FBB0 /* ProductListingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingPresenter.swift; sourceTree = "<group>"; };
+		3ADF529C1F4739730052FBB0 /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		499582167D3923F4EAD22504 /* Pods-infiniteProducts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-infiniteProducts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-infiniteProducts/Pods-infiniteProducts.debug.xcconfig"; sourceTree = "<group>"; };
 		4D2D196CF410F46D10ACA8B6 /* Pods_infiniteProductsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_infiniteProductsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		698A57432D3CE915287F1EB5 /* Pods-infiniteProductsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-infiniteProductsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-infiniteProductsTests/Pods-infiniteProductsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,8 +77,11 @@
 		3AA8F0161F33AF7F000A46C1 /* ProductListing */ = {
 			isa = PBXGroup;
 			children = (
+				3AAB81251F33A51600BABED9 /* Main.storyboard */,
+				3AAB81231F33A51600BABED9 /* ProductListingViewController.swift */,
 				3AA8F0171F33AF9D000A46C1 /* ApiClient.swift */,
 				3AA8F01B1F371D22000A46C1 /* Product.swift */,
+				3ADF529A1F4736780052FBB0 /* ProductListingPresenter.swift */,
 			);
 			path = ProductListing;
 			sourceTree = "<group>";
@@ -104,11 +111,10 @@
 			children = (
 				3AA8F0161F33AF7F000A46C1 /* ProductListing */,
 				3AAB81211F33A51600BABED9 /* AppDelegate.swift */,
-				3AAB81231F33A51600BABED9 /* ProductListingViewController.swift */,
-				3AAB81251F33A51600BABED9 /* Main.storyboard */,
 				3AAB81281F33A51600BABED9 /* Assets.xcassets */,
 				3AAB812A1F33A51600BABED9 /* LaunchScreen.storyboard */,
 				3AAB812D1F33A51600BABED9 /* Info.plist */,
+				3ADF529C1F4739730052FBB0 /* BaseCollectionViewController.swift */,
 			);
 			path = infiniteProducts;
 			sourceTree = "<group>";
@@ -344,7 +350,9 @@
 			files = (
 				3AAB81241F33A51600BABED9 /* ProductListingViewController.swift in Sources */,
 				3AA8F01C1F371D22000A46C1 /* Product.swift in Sources */,
+				3ADF529B1F4736780052FBB0 /* ProductListingPresenter.swift in Sources */,
 				3AAB81221F33A51600BABED9 /* AppDelegate.swift in Sources */,
+				3ADF529D1F4739730052FBB0 /* BaseCollectionViewController.swift in Sources */,
 				3AA8F0181F33AF9D000A46C1 /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
