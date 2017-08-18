@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ProductListingViewController: BaseCollectionViewController {
+protocol ProductListingPresentable {
+  func updateDataSource() 
+}
+
+class ProductListingViewController: BaseCollectionViewController, ProductListingPresentable {
   private var presenter: ProductListingPresenter?
   override func viewDidLoad() {
     presenter = ProductListingPresenter(view: self)
     super.viewDidLoad()
+  }
+
+  func updateDataSource() {
+
   }
 }
 
