@@ -22,7 +22,7 @@ class ProductListingPresenter {
 
         return ProductViewModel(name: product.name,
                                 price: product.price,
-                                imageThumbnailUrl: thumbnailPath)
+                                imageUrl: thumbnailPath)
       }
       view.updateDataSource(with: productViewModels)
     }

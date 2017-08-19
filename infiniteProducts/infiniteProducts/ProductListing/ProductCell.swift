@@ -7,9 +7,18 @@
 //
 
 import UIKit
+import Siesta
 
 class ProductCell: UICollectionViewCell {
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var priceLabel: UILabel!
-  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var imageView: RemoteImageView!
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    imageView.placeholderImage = UIImage(named: "placeholder")
+  }
+}
+
+extension RemoteImageView {
 }

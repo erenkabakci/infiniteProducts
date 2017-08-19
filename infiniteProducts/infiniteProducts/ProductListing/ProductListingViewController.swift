@@ -44,6 +44,7 @@ class ProductListingViewController: BaseCollectionViewController, ProductListing
 
     cell.nameLabel.text = products[indexPath.row].name
     cell.priceLabel.text = products[indexPath.row].price
+    cell.imageView.imageURL = products[indexPath.row].imageUrl
 
     return cell
   }
