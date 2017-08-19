@@ -34,7 +34,7 @@ class ProductListingViewController: BaseCollectionViewController, ProductListing
     collectionView?.reloadData()
   }
 
-  // MARK: - UICollectionViewDataSource protocol
+  // MARK: - UICollectionViewDataSource
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return products.count
   }
@@ -47,6 +47,15 @@ class ProductListingViewController: BaseCollectionViewController, ProductListing
     cell.imageView.imageURL = products[indexPath.row].imageUrl
 
     return cell
+  }
+
+  // MARK: - UIScrollViewDelegate
+  override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    guard let lastVisibleCell = collectionView?.visibleCells.last,
+      let lastVisibleIndexPath = collectionView?.indexPath(for: lastVisibleCell) else {
+        return
+    }
+    presenter.lastVisibleIndexChanged(index: lastVisibleIndexPath.row)
   }
 }
 

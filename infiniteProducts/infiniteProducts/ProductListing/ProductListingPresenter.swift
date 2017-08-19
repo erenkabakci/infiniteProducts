@@ -48,4 +48,10 @@ class ProductListingPresenter {
         }
       }).loadIfNeeded()
   }
+
+  func lastVisibleIndexChanged(index: Int) {
+    if index >= products.count * 2 / 3 {
+      loadAdditionalProducts()
+    }
+  }
 }
