@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="coH-SV-8Ok">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,24 +15,56 @@
             <objects>
                 <collectionViewController id="Oxv-CY-N3i" customClass="ProductListingViewController" customModule="infiniteProducts" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="8wG-eE-g5n">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0Yk-eq-pGM">
-                            <size key="itemSize" width="200" height="60"/>
+                            <size key="itemSize" width="238" height="217"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="kIe-id-M31">
-                                <rect key="frame" x="60" y="0.0" width="200" height="60"/>
+                                <rect key="frame" x="41" y="0.0" width="238" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="238" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LJe-KT-bAB">
+                                            <rect key="frame" x="5" y="5" width="228" height="228"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="LJe-KT-bAB" secondAttribute="height" multiplier="1:1" id="WxH-4P-xKc"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Very long text to make sure autloayout is working on every possible scenario" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbc-se-hIf" userLabel="Product Name Label">
+                                            <rect key="frame" x="5" y="238" width="180.5" height="157"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-57-Q7A" userLabel="Price Label">
+                                            <rect key="frame" x="190.5" y="308.5" width="34.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                            <color key="textColor" red="0.094117647060000004" green="0.73333333329999995" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="qbc-se-hIf" firstAttribute="leading" secondItem="kIe-id-M31" secondAttribute="leading" constant="5" id="1Gg-OB-VqI"/>
+                                    <constraint firstItem="1lp-57-Q7A" firstAttribute="leading" secondItem="qbc-se-hIf" secondAttribute="trailing" constant="5" id="EfZ-Fj-uZz"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="1lp-57-Q7A" secondAttribute="trailing" constant="5" id="e0W-rz-jlz"/>
+                                    <constraint firstItem="LJe-KT-bAB" firstAttribute="top" secondItem="kIe-id-M31" secondAttribute="top" constant="5" id="gB5-gJ-dNn"/>
+                                    <constraint firstItem="LJe-KT-bAB" firstAttribute="leading" secondItem="kIe-id-M31" secondAttribute="leading" constant="5" id="m1w-zh-R3b"/>
+                                    <constraint firstItem="1lp-57-Q7A" firstAttribute="centerY" secondItem="qbc-se-hIf" secondAttribute="centerY" id="nfg-3b-hHa"/>
+                                    <constraint firstItem="qbc-se-hIf" firstAttribute="top" secondItem="LJe-KT-bAB" secondAttribute="bottom" constant="5" id="pGC-ve-kdY"/>
+                                    <constraint firstAttribute="bottom" secondItem="qbc-se-hIf" secondAttribute="bottom" constant="5" id="uss-eV-lQq"/>
+                                    <constraint firstAttribute="trailing" secondItem="LJe-KT-bAB" secondAttribute="trailing" constant="5" id="voi-hv-ekQ"/>
+                                </constraints>
+                                <size key="customSize" width="238" height="400"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -42,7 +76,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caS-zK-l1p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56.799999999999997" y="-80.50974512743629"/>
+            <point key="canvasLocation" x="56.25" y="-81.338028169014081"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MC3-DT-wyB">

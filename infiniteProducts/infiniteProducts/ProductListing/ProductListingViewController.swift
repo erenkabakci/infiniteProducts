@@ -16,7 +16,7 @@ fileprivate enum Constants {
   static let cellReuseIdentifier = "productCell"
   static let itemsPerRow: CGFloat = 2
   static let sectionInsets: UIEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
-  static let cellHeight: CGFloat = 60.0
+  static let cellAccessoryHeight: CGFloat = 70.0
 }
 
 class ProductListingViewController: BaseCollectionViewController, ProductListingPresentable {
@@ -52,7 +52,7 @@ extension ProductListingViewController : UICollectionViewDelegateFlowLayout {
     let availableWidth = view.frame.width - paddingSpace - Constants.sectionInsets.left
     let widthPerItem = availableWidth / Constants.itemsPerRow
 
-    return CGSize(width: widthPerItem, height: Constants.cellHeight)
+    return CGSize(width: widthPerItem, height: widthPerItem + Constants.cellAccessoryHeight)
   }
 
   func collectionView(_ collectionView: UICollectionView,
