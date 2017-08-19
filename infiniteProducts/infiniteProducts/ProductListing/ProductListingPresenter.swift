@@ -11,16 +11,26 @@ import UIKit
 import Siesta
 
 class ProductListingPresenter {
-  let view: BaseCollectionViewController & ProductListingPresentable
+  let view: ViewLifecycleObservable & ProductListingPresentable
   let apiClient: ApiClient
-  private (set) var products: [Product] = [] {
+  private var products: [Product] = [] {
     didSet {
-      view.updateDataSource()
+      let productViewModels = products.flatMap { (product) -> ProductViewModel? in
+        guard let thumbnailPath = product.thumbnailPath else {
+          return nil
+        }
+
+        return ProductViewModel(name: product.name,
+                                price: product.price,
+                                imageThumbnailUrl: thumbnailPath)
+      }
+      view.updateDataSource(with: productViewModels)
     }
   }
   private var currentProductPage: Int = 0
 
-  init(view: BaseCollectionViewController & ProductListingPresentable, apiClient: ApiClient = ApiClientImpl()) {
+  init(view: ViewLifecycleObservable & ProductListingPresentable,
+       apiClient: ApiClient = ApiClientImpl()) {
     self.view = view
     self.apiClient = apiClient
 

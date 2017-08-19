@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A4FFD421F48423C0063D03E /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FFD411F48423C0063D03E /* ProductCell.swift */; };
+		3A4FFD441F4844870063D03E /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4FFD431F4844870063D03E /* ProductViewModel.swift */; };
 		3AA8F0181F33AF9D000A46C1 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8F0171F33AF9D000A46C1 /* ApiClient.swift */; };
 		3AA8F01A1F33B11D000A46C1 /* ApiClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8F0191F33B11D000A46C1 /* ApiClientTests.swift */; };
 		3AA8F01C1F371D22000A46C1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8F01B1F371D22000A46C1 /* Product.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		391F4EE91DED8696FCC0F224 /* Pods-infiniteProducts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-infiniteProducts.release.xcconfig"; path = "Pods/Target Support Files/Pods-infiniteProducts/Pods-infiniteProducts.release.xcconfig"; sourceTree = "<group>"; };
+		3A4FFD411F48423C0063D03E /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		3A4FFD431F4844870063D03E /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		3AA8F0171F33AF9D000A46C1 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		3AA8F0191F33B11D000A46C1 /* ApiClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClientTests.swift; sourceTree = "<group>"; };
 		3AA8F01B1F371D22000A46C1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				3AA8F0171F33AF9D000A46C1 /* ApiClient.swift */,
 				3AA8F01B1F371D22000A46C1 /* Product.swift */,
 				3ADF529A1F4736780052FBB0 /* ProductListingPresenter.swift */,
+				3A4FFD411F48423C0063D03E /* ProductCell.swift */,
+				3A4FFD431F4844870063D03E /* ProductViewModel.swift */,
 			);
 			path = ProductListing;
 			sourceTree = "<group>";
@@ -354,6 +360,8 @@
 				3AAB81221F33A51600BABED9 /* AppDelegate.swift in Sources */,
 				3ADF529D1F4739730052FBB0 /* BaseCollectionViewController.swift in Sources */,
 				3AA8F0181F33AF9D000A46C1 /* ApiClient.swift in Sources */,
+				3A4FFD441F4844870063D03E /* ProductViewModel.swift in Sources */,
+				3A4FFD421F48423C0063D03E /* ProductCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProductListingPresentable {
-  func updateDataSource() 
+  func updateDataSource(with products: [ProductViewModel])
 }
 
 fileprivate enum Constants {
@@ -21,24 +21,30 @@ fileprivate enum Constants {
 
 class ProductListingViewController: BaseCollectionViewController, ProductListingPresentable {
   private var presenter: ProductListingPresenter!
+  private var products: [ProductViewModel] = []
 
   override func viewDidLoad() {
     presenter = ProductListingPresenter(view: self)
     super.viewDidLoad()
+    self.title = "Infinite Products"
   }
 
-  func updateDataSource() {
+  func updateDataSource(with products: [ProductViewModel]) {
+    self.products = products
     collectionView?.reloadData()
   }
 
   // MARK: - UICollectionViewDataSource protocol
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return presenter.products.count
+    return products.count
   }
 
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellReuseIdentifier,
-                                                  for: indexPath)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellReuseIdentifier, for: indexPath) as! ProductCell
+
+    cell.nameLabel.text = products[indexPath.row].name
+    cell.priceLabel.text = products[indexPath.row].price
+
     return cell
   }
 }
