@@ -11,7 +11,7 @@ import UIKit
 import Siesta
 
 class ProductListingPresenter {
-  let view: ViewLifecycleObservable & ProductListingPresentable
+  weak var view: (ViewLifecycleObservable & ProductListingPresentable)?
   let apiClient: ApiClient
   private var products: [Product] = [] {
     didSet {
@@ -24,7 +24,7 @@ class ProductListingPresenter {
                                 price: product.price,
                                 imageUrl: thumbnailPath)
       }
-      view.updateDataSource(with: productViewModels)
+      view?.updateDataSource(with: productViewModels)
     }
   }
   private var currentProductPage: Int = 0
@@ -41,12 +41,12 @@ class ProductListingPresenter {
 
   func loadAdditionalProducts() {
     apiClient.fetchProducts(forPage: self.currentProductPage)
-      .addObserver(owner: self, closure: { [unowned self] (resource, resourceEvent) in
+      .addObserver(owner: self, closure: { [weak self] (resource, resourceEvent) in
         if case .newData = resourceEvent {
-          self.products.append(contentsOf: resource.typedContent() ?? [])
-          self.currentProductPage += 1
+          self?.products.append(contentsOf: resource.typedContent() ?? [])
+          self?.currentProductPage += 1
         }
-      }).loadIfNeeded()
+      }).load()
   }
 
   func lastVisibleIndexChanged(index: Int) {
