@@ -11,21 +11,32 @@ import Siesta
 import Unbox
 @testable import infiniteProducts
 
+private enum Constants {
+  static let timeout: TimeInterval = 3.0
+}
+
 private var service: Service!
 private var view = MockView()
-private var productLoadExpectation: XCTestExpectation!
+private var apiClient = MockApiClient()
+private var additionalLoadingExpectation: XCTestExpectation!
 
 class MockApiClient: ApiClient {
+  private (set) var currentPage: Int = 0
   func fetchProducts(forPage pageNumber: Int) -> Resource {
+    currentPage = pageNumber
     return service.resource("/foo")
   }
 }
 
 class MockView: ViewLifecycleObservable, ProductListingPresentable {
+  private (set) var verificationCount: Int = 0
   var onViewDidLoad: (() -> Void)?
 
   func updateDataSource(with products: [ProductViewModel]) {
-    productLoadExpectation.fulfill()
+    verificationCount += 1
+    if view.verificationCount == 1 {
+      additionalLoadingExpectation.fulfill()
+    }
   }
 }
 
@@ -35,7 +46,7 @@ class PresenterTests: XCTestCase {
 
   override func setUp() {
     prepareMockNetworkStack()
-    presenter = ProductListingPresenter(view: view, apiClient: MockApiClient())
+    presenter = ProductListingPresenter(view: view, apiClient: apiClient)
   }
 
   override func tearDown() {
@@ -61,12 +72,14 @@ class PresenterTests: XCTestCase {
     }
   }
 
-  func testFoo() {
-    productLoadExpectation = expectation(description: "Additional product loading has failed")
+  func testPageNumberIncrement() {
     presenter.loadAdditionalProducts()
+    XCTAssert(apiClient.currentPage == 0)
+  }
 
-    waitForExpectations(timeout: 5) { (error) in
-
-    }
+  func testAdditionalProductTrigger() {
+    additionalLoadingExpectation = expectation(description: "Additional product loading has failed")
+    presenter.loadAdditionalProducts()
+    waitForExpectations(timeout: Constants.timeout) { _ in}
   }
 }
