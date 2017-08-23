@@ -12,6 +12,7 @@ import Unbox
 @testable import infiniteProducts
 
 private var service: Service!
+private var view = MockView()
 private var productLoadExpectation: XCTestExpectation!
 
 class MockApiClient: ApiClient {
@@ -34,7 +35,7 @@ class PresenterTests: XCTestCase {
 
   override func setUp() {
     prepareMockNetworkStack()
-    presenter = ProductListingPresenter(view: MockView(), apiClient: MockApiClient())
+    presenter = ProductListingPresenter(view: view, apiClient: MockApiClient())
   }
 
   override func tearDown() {

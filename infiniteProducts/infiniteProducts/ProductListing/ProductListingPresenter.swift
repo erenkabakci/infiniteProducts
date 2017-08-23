@@ -24,7 +24,10 @@ class ProductListingPresenter {
                                 price: product.price,
                                 imageUrl: thumbnailPath)
       }
-      view?.updateDataSource(with: productViewModels)
+
+      if let view = self.view {
+        view.updateDataSource(with: productViewModels)
+      }
     }
   }
   private var currentProductPage: Int = 0
