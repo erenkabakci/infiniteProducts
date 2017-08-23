@@ -1,0 +1,16 @@
+{
+  "trend_products": {
+    "products": [{
+                 "id": "59765",
+                 "name": "Echtleder-Armband unisex",
+                 "price": "5.9900",
+                 "msrp": "12.9500",
+                 "sku": "crys_stilecht",
+                 "enabled_from": "2015-02-15",
+                 "show_msrp": "1",
+                 "show_msrp_index": 0,
+                 "discount": 54,
+                 "thumbnail_path": "catalog/product/cache/1/image/400x/9df78eab33525d08d6e5fb8d27136e95/t/i/titel_crys_stilecht.jpg"
+                 }]
+  }
+}

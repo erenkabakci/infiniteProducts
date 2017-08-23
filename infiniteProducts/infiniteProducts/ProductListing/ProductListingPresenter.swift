@@ -46,7 +46,7 @@ class ProductListingPresenter {
           self?.products.append(contentsOf: resource.typedContent() ?? [])
           self?.currentProductPage += 1
         }
-      }).load()
+      }).loadIfNeeded()
   }
 
   func lastVisibleIndexChanged(index: Int) {
